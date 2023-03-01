@@ -1,0 +1,12 @@
+.item {
+    border-bottom: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.item .itemValue {
+    width: 70%;
+    height: 30px;
+    border: 0;
+    outline: none;
+}
