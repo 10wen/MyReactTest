@@ -1,17 +1,12 @@
-import logo from "./logo.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Routes,
   Route,
   Link,
   Navigate,
-  useRoutes,
-  useNavigate,
 } from "react-router-dom";
 
-// import i18n from "i18next";
-// import { initReactI18next } from "react-i18next";
-// import translations from "source/translations";
+
 import i18n from "i18n";
 import { useTranslation } from "react-i18next";
 
@@ -23,9 +18,6 @@ import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 
 
-// i18n
-//   .use(initReactI18next) // passes i18n down to react-i18next
-//   .init(translations);
 
 const navStyle = {
   nav: {
@@ -47,13 +39,6 @@ const navStyle = {
 };
 
 function App() {
-  // const useroutes = useRoutes([
-  //   {
-  //     path: '/login',
-  //     element: <Login />
-  //   }
-  // ])
-  // 页面直接 {userroutes}
 
   const [language,setLanguage] = useState('cn')
   const {t} = useTranslation()
@@ -83,7 +68,6 @@ function App() {
         </li>
         <li style={navStyle.li}>
           <div>
-            {/* <label>lang</label> */}
             <select value={language} onChange={(e) => changeLanguage(e)}>
               <option value="cn">简</option>
               <option value="hk">繁</option>
@@ -95,10 +79,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dash" element={<Dash lang={language} />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
